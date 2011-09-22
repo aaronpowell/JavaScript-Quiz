@@ -22,7 +22,7 @@ section '#comments', ->
   div '#disqus_thread', -> '&nbsp;'
   coffeescript ->
     $ ->
-      window.disqus_identifier= @Document.slug
+      window.disqus_identifier= "#{@Document.slug}"
       window.disqus_developer= document.location.href.indexOf("localhost")
       window.disqus_url= @Document.url
       if typeof window.DISQUS isnt "undefined"
