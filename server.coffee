@@ -12,7 +12,7 @@ debug = true
 console.log 'Time to regenerate the site'
 
 builder = docpad.createInstance { }
-builder.action 'generate'
+builder.generateAction (err) -> console.log err 
 
 console.log 'Aaaaaand we are done!'
 
