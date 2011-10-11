@@ -2,6 +2,7 @@
 layout: default
 ---
 article "#page.page", ->
-  h1 -> @Document.title
+  if @Document.title
+  	h1 -> @Document.title
   div -> @content
 

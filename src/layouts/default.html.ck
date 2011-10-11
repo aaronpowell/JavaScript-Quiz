@@ -13,16 +13,16 @@ html ->
     meta content: "width=device-width", name: "viewport"
     link href: "styles/site.css", rel: "stylesheet", type: "text/css"
     link href:'/favicon.ico', rel:'shortcut icon', type:'image/x-icon'
-  body ->
+  body "class": "#{@Document.title.toLowerCase().replace(' ', '') || "home" }", ->
     div "#main", ->
       header ->
         h1 ->
-          a href: "http://javascriptquiz.com", -> @Document.title
+          a href: "http://javascriptquiz.com", -> "JavaScript Quiz"
         h3 -> "Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions"
       div "#content.content", ->
         @content
     script src: "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
-    script defer: "", src: "http://javascriptquiz.disqus.com/embed.js"
-    script defer: "", src: "http://www.google-analytics.com/ga.js"
-    script defer: "", src: "/scripts/modernizr.custom.js"
-    script defer: "", src: "/scripts/analytics.js"
+    script src: "http://javascriptquiz.disqus.com/embed.js"
+    script src: "http://www.google-analytics.com/ga.js"
+    script src: "/scripts/modernizr.custom.js"
+    script src: "/scripts/analytics.js"
