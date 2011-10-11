@@ -22,14 +22,15 @@ section '#comments', ->
   div '#disqus_thread', -> '&nbsp;'
   coffeescript ->
     $ ->
-      window.disqus_identifier= "#{@Document.slug}"
-      window.disqus_developer= document.location.href.indexOf("localhost")
-      window.disqus_url= @Document.url
+      window.disqus_shortname = "javascriptquiz"
+      window.disqus_identifier = document.location.title or 'Home'
+      window.disqus_developer = if document.location.href.indexOf("localhost") then 1 else 0
+      window.disqus_url= document.location.href
       if typeof window.DISQUS isnt "undefined"
         window.DISQUS.reset
           reload: yes
-          config: ->
-            @page.identifier = @Document.slug
-            @page.url = @Document.url
+          config: =>
+            @page.identifier = document.location.title
+            @page.url = document.location.href
 
   

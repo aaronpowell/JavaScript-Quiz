@@ -11,8 +11,9 @@ html ->
     meta content: @Document.title, name: "title"
     meta content: "Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions", name: "description"
     meta content: "width=device-width", name: "viewport"
-    link href: "styles/site.css", rel: "stylesheet", type: "text/css"
+    link href: "/styles/site.css", rel: "stylesheet", type: "text/css"
     link href:'/favicon.ico', rel:'shortcut icon', type:'image/x-icon'
+    script src: "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
   body "class": "#{@Document.title.toLowerCase().replace(' ', '') || "home" }", ->
     div "#main", ->
       header ->
@@ -21,7 +22,6 @@ html ->
         h3 -> "Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions"
       div "#content.content", ->
         @content
-    script src: "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
     script src: "http://javascriptquiz.disqus.com/embed.js"
     script src: "http://www.google-analytics.com/ga.js"
     script src: "/scripts/modernizr.custom.js"
