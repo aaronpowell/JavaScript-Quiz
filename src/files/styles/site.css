@@ -105,13 +105,18 @@ a, a:hover, a:visited {
 }
 
 
-.home section {
-  width: 600px;
+.home section.posts {
+  width: 580px;
+  margin-right: 20px;
 }
 
 .home aside {
   float:right;
   width: 178px;
+}
+
+.post-link {
+  border-bottom: 1px solid #999;
 }
 
 .post-link h1 {
