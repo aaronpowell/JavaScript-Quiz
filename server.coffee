@@ -9,12 +9,12 @@ debug = true
 
 # -------------------------------------
 # Generator
-console.log 'Time to regenerate the site'
+# console.log 'Time to regenerate the site'
 
-builder = docpad.createInstance { }
-builder.generateAction (err) -> console.log err 
+# builder = docpad.createInstance { }
+# builder.generateAction (err) -> console.log err 
 
-console.log 'Aaaaaand we are done!'
+# console.log 'Aaaaaand we are done!'
 
 # -------------------------------------
 # Server
@@ -31,7 +31,7 @@ docpadInstance = docpad.createInstance {
 	port: masterPort
 	maxAge: expiresOffset
 	server: docpadServer
-	logLevel: 7
+	logLevel: 6
 }
 
 # -------------------------------------

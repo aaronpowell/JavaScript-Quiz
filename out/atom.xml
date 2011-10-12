@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>JavaScript Quiz</title>
+    <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
+    <link href="http://javascriptquiz.com"/>
+    <updated><%= @Site.date.toIsoDateString() %></updated>
+    <id>http://javascriptquiz.com</id>
+    <author>
+        <name>Aaron Powell</name>
+        <email>me@aaron-powell.com</email>
+    </author>
+
+    <% for Document in @Documents: %>
+        <% if Document.url.indexOf('/blog') == 0: %>
+            <entry>
+                <title><%= Document.title %></title>
+                <link href="http://javascriptquiz.com<%= Document.url %>"/>
+                <updated><%= Document.date.toIsoDateString() %></updated>
+                <id>http://javascriptquiz.com<%= Document.url %></id>
+                <content type="html"><%= Document.content %></content>
+            </entry>
+        <% end %>
+    <% end %>
+</feed>
