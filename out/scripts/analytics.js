@@ -1,23 +1,6 @@
-// Re-Invigorate
-if ( typeof reinvigorate !== 'undefined' ) {
-	reinvigorate.code = "702o7-66905bt9t0";
-	reinvigorate.url_filter = function(url) {
-		if ( url == reinvigorate.session.url && reinvigorate.url_override != null ) {
-			reinvigorate.session.url = url = reinvigorate.url_override;
-		}
-		return url.replace(/^https?:\/\/(www\.)?/,"http://");
-	};
-	reinvigorate.ajax_track = function(url) {
-		reinvigorate.url_override = url;
-		reinvigorate.track(reinvigorate.code);
-	};
-	reinvigorate.url_override = null;
-	reinvigorate.track(reinvigorate.code);
-}
-
 // Google Analytics
 if ( typeof _gat !== 'undefined' ) {
-	var pageTracker = _gat._getTracker("UA-4446117-1");
+	var pageTracker = _gat._getTracker("UA-20152461-3");
 	pageTracker._initData();
 	if ( Modernizr ) {
 		pageTracker._setCustomVar(1, "html5.csstransforms", Modernizr.csstransforms ? "yes" : "no" , 2 );

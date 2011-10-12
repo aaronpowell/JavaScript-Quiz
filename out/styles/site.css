@@ -117,6 +117,7 @@ a, a:hover, a:visited {
 
 .post-link {
   border-bottom: 1px solid #999;
+  margin-bottom: 15px;
 }
 
 .post-link h1 {

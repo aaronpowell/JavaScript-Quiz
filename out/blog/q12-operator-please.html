@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="text/html; charset=utf-8" http-equiv="content-type" /><title>Q12 - Operator Please</title><meta content="Aaron Powell" name="author" /><meta content="me@aaron-powell.com" name="email" /><meta content="Q12 - Operator Please" name="title" /><meta content="Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions" name="description" /><meta content="width=device-width" name="viewport" /><link href="/styles/site.css" rel="stylesheet" type="text/css" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script></head><body class="q12-- operator please"><div id="main"><header><h1><a href="http://javascriptquiz.com">JavaScript Quiz</a></h1><h3>Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions</h3></header><div id="content" class="content"><article id="post" class="post undefined"><h1>Q12 - Operator Please</h1><h3>Wed Oct 05 2011</h3><div><p>What is the result of executing function <code>b</code> in the following code snippet?</p>
+
+<script src="https://gist.github.com/1238701.js"> </script>
+
+<p>Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</p>
+
+<p><span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>  </p>
+
+<p>Updated: Answer published.</p>
+
+<p>Follow <a href="http://twitter.com/JavaScriptQuiz">@JavaScriptQuiz</a> to know when the answer is up and to catch the next question.</p>
+
+<p>Happy hacking.</p>
+
+<hr />
+
+<p>The result of executing the function <strong>b</strong> is <strong>2</strong>, and this is because of the <a href="http://es5.github.com/#x11.14">comma is an operator</a> in JavaScript! The comma operator is the very bottom of the operator evaluation stack, meaning a trailing comma will cause following commands to be evaluated and in this case, returned.</p>
+
+<p>The comma operator is quite often seen used in for loops like so:</p>
+
+<p><code>for(var i = 0, j = array.length; i &lt; j; i++)</code></p>
+
+<p>Here we're using the comma operator to chain variable assignments.</p>
+
+<p>There's a lot of interesting things which can be done with the comma operator, <a href="http://javascriptweblog.wordpress.com/2011/04/04/the-javascript-comma-operator/">have a read here for more ideas</a>.</p></div></article><section id="comments"><h3>Feedback</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+    return $(function() {
+      window.disqus_shortname = "javascriptquiz";
+      window.disqus_identifier = document.title || 'Home';
+      window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
+      window.disqus_url = document.location.href;
+      if (typeof window.DISQUS !== "undefined") {
+        return window.DISQUS.reset({
+          reload: true,
+          config: __bind(function() {
+            this.page.identifier = document.title;
+            return this.page.url = document.location.href;
+          }, this)
+        });
+      }
+    });
+  }).call(this);</script></section></div></div><script src="http://javascriptquiz.disqus.com/embed.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script src="/scripts/modernizr.custom.js"></script><script src="/scripts/analytics.js"></script></body></html>
