@@ -1,6 +1,6 @@
 ---
 layout: 'page'
-title: ''
+title: 'Latest Posts'
 ---
 aside ->
   img src: 'http://www.gravatar.com/avatar/5d608d8fe9156b0e01b3f224e28409b0.png'
@@ -13,7 +13,6 @@ aside ->
     a href:"http://aaron-powell.com", title: 'http://aaron-powell.com', -> "http://aaron-powell.com"
 
 section ".posts", ->
-    h2 -> "Latest Posts"
     nav ".linklist", typeof:"dc:collection", ->
     for Document in @Documents
       if Document.url.indexOf('/blog') == 0

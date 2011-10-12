@@ -14,7 +14,7 @@ html ->
     link href: "/styles/site.css", rel: "stylesheet", type: "text/css"
     link href:'/favicon.ico', rel:'shortcut icon', type:'image/x-icon'
     script src: "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
-  body "class": "#{@Document.title.toLowerCase().replace(' ', '') || "home" }", ->
+  body "class": "#{@Document.title.toLowerCase().replace(' ', '-') || "home" }", ->
     div "#main", ->
       header ->
         h1 ->

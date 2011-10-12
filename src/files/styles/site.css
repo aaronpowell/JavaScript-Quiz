@@ -105,12 +105,12 @@ a, a:hover, a:visited {
 }
 
 
-.home section.posts {
+.latest-posts section.posts {
   width: 580px;
   margin-right: 20px;
 }
 
-.home aside {
+.latest-posts aside {
   float:right;
   width: 178px;
 }
