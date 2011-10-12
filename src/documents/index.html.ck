@@ -18,11 +18,11 @@ section ".posts", ->
     for Document in @Documents
       if Document.url.indexOf('/blog') == 0
           section ".post-link", typeof:"sioc:Post", about: Document.url, ->
-            regex = /(\d{4})-(\d{2})-(\d{2})/
-            date = new Date Document.date.match(regex)[1], Document.date.match(regex)[2] - 1, Document.date.match(regex)[3]
+            # regex = /(\d{4})-(\d{2})-(\d{2})/
+            # date = new Date Document.date.match(regex)[1], Document.date.match(regex)[2] - 1, Document.date.match(regex)[3]
             h1 ->
               a href: Document.url, property:"dc:title", -> Document.title
-            h5 property:"dc:created", -> "#{date.toDateString()}"
+            h5 property:"dc:created", -> "#{Document.date.toDateString()}"
             p -> Document.slug
 
 div "#disqus_thread", style:"display:none;"
