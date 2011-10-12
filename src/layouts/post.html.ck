@@ -4,6 +4,8 @@ layout: default
 article '#post.post ' + @Document.class, ->
   h1 ->
     @Document.title
+  h3 ->
+    @Document.date.toDateString()
   div ->
     @content
     
