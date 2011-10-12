@@ -2,7 +2,7 @@
 layout: post
 title: New site
 tags: []
-date: '2011-10-11'
+date: '2011-10-12'
 slug: Guess what, we've got a new site!
 ---
 

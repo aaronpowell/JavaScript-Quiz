@@ -77,5 +77,5 @@ console.log 'Express server listening on port %d', docpadServer.address().port
 docpadServer.get /^\/(?:t|twitter|tweet)\/?.*$/, (req, res) ->
 	res.redirect "https://twitter.com/javascriptquiz", 301
     
-#docpadServer.get /^\/q\d(1-2)*$/, (req, res) ->
-#    res.redirect "http://javascriptquiz.com/blog" + req.url + ".html", 302
+docpadServer.get /^\/q\d(1-2)*$/, (req, res) ->
+    res.redirect "http://javascriptquiz.com/blog" + req.url + ".html", 302
