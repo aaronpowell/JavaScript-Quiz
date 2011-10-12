@@ -12,7 +12,9 @@ debug = true
 console.log 'Time to regenerate the site'
 
 builder = docpad.createInstance { }
-builder.action 'generate', -> console.log 'Aaaaaand we are done!'
+builder.generateAction (err) -> console.log err 
+
+console.log 'Aaaaaand we are done!'
 
 # -------------------------------------
 # Server
@@ -74,3 +76,6 @@ console.log 'Express server listening on port %d', docpadServer.address().port
 # Twitter
 docpadServer.get /^\/(?:t|twitter|tweet)\/?.*$/, (req, res) ->
 	res.redirect "https://twitter.com/javascriptquiz", 301
+    
+docpadServer.get /^\/q\d(1-2)*$/, (req, res) ->
+    res.redirect "http://javascriptquiz.com/blog" + req.url + ".html", 302
