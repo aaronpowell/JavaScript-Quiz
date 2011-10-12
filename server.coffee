@@ -31,6 +31,7 @@ docpadInstance = docpad.createInstance {
 	port: masterPort
 	maxAge: expiresOffset
 	server: docpadServer
+	logLevel: 7
 }
 
 # -------------------------------------
