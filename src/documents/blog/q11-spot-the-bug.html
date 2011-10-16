@@ -1,0 +1,21 @@
+---
+layout: post
+title: Q11 - Spot the bug
+tags: []
+date: '2011-09-28'
+slug: There's an error in the code, can you catch where it'd be?
+---
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q11-spot-the-bug">here</a>.</em></p>
+<p>There is a bug in the following code, without running it can you spot where the bug is?</p>
+<p><a href="https://gist.github.com/1236887">https://gist.github.com/1236887</a></p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span></p>
+<p><span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span> <strong>Update:</strong> answer now posted.</p>
+<p>Follow <a href="http://twitter.com/JavaScriptQuiz">@JavaScriptQuiz</a> to know when the answer is up and to catch the next question.</p>
+<p>Happy hacking.</p>
+<hr />
+<p><strong>Answer:</strong></p>
+<p>The bug is that the method <code>showData</code> does not exist on the <code>window</code> object so when the callback from the AJAX response happens it will fall over.</p>
+<p>This happens because of the way the <code>this</code> value is handled within JavaScript. In JavaScript the <code>this</code> value is scoped to the current function and is not at a class level like you would expect in compiled languages.</p>
+<p>But you can use JavaScript closures to ensure that this doesn&rsquo;t catch you out, if you assign the <code>this</code> value to a variable before the callback executes (eg: the top of the <code>getData</code> function) it&rsquo;ll then be available through that variable.</p>
+<p>This is why you see a lot of JavaScript code with lines like:</p>
+<p><code>var that = this;</code></p>

@@ -1,0 +1,20 @@
+---
+layout: post
+title: Q10 - Who shot first?
+tags: []
+date: '2011-09-19'
+slug: The order of operation can be very important but all may not be as it seems
+---
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q10-who-shot-first">here</a>.</em></p>
+<p>Without executing the following code snippet, <em>who shot first</em>? (Accordnig to the majority of JavaScript runtimes)</p>
+<script src="https://gist.github.com/1225982.js"></script>
+<p>In addition do the first two timeouts execute in place or not? If not, when do they execute?</p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span><br />Update: Answer posted&nbsp;</p>
+<p>If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</p>
+<p>Follow&nbsp;<a href="http://twitter.com/javascriptquiz">@JavaScriptQuiz</a>&nbsp;to know when the answer is up and to catch the next question.</p>
+<div>Happy hacking.</div>
+<hr />
+<p>The answer I was looking for to this weeks question is <strong>Han</strong>&nbsp;because after all <a href="http://en.wikipedia.org/wiki/Han_shot_first">Han always shot first</a>&nbsp;;). Technically the answer to this weeks question is <em>it depends</em>&nbsp;because timers work slightly different in each JavaScript runtime but to be closes to <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#timers">the spec</a>&nbsp;you're looking at Han.</p>
+<p>The reason for this is that according to the spec the minimum for a timeout in JavaScript is 4 milliseconds and any timeout that is less than 4 milliseconds will be increased to 4 milliseconds. This means that the two functions have <strong>the same timeout value</strong>&nbsp;and they will be executed in the order they are added to the timeout queue.</p>
+<p>So next time you're using small timeouts be sure to test them across your different runtimes so that they actually work as expected.</p>

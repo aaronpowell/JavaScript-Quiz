@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="text/html; charset=utf-8" http-equiv="content-type" /><title>Q11 - Spot the bug</title><meta content="Aaron Powell" name="author" /><meta content="me@aaron-powell.com" name="email" /><meta content="Q11 - Spot the bug" name="title" /><meta content="Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions" name="description" /><meta content="width=device-width" name="viewport" /><link href="/styles/site.css" rel="stylesheet" type="text/css" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script></head><body class="q11-- spot the bug"><div id="main"><header><h1><a href="http://javascriptquiz.com">JavaScript Quiz</a></h1><h3>Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions</h3></header><div id="content" class="content"><article id="post" class="post undefined"><h1>Q11 - Spot the bug</h1><h3>Wed Sep 28 2011</h3><div>
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q11-spot-the-bug">here</a>.</em></p>
+<p>There is a bug in the following code, without running it can you spot where the bug is?</p>
+<p><a href="https://gist.github.com/1236887">https://gist.github.com/1236887</a></p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span></p>
+<p><span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span> <strong>Update:</strong> answer now posted.</p>
+<p>Follow <a href="http://twitter.com/JavaScriptQuiz">@JavaScriptQuiz</a> to know when the answer is up and to catch the next question.</p>
+<p>Happy hacking.</p>
+<hr />
+<p><strong>Answer:</strong></p>
+<p>The bug is that the method <code>showData</code> does not exist on the <code>window</code> object so when the callback from the AJAX response happens it will fall over.</p>
+<p>This happens because of the way the <code>this</code> value is handled within JavaScript. In JavaScript the <code>this</code> value is scoped to the current function and is not at a class level like you would expect in compiled languages.</p>
+<p>But you can use JavaScript closures to ensure that this doesn&rsquo;t catch you out, if you assign the <code>this</code> value to a variable before the callback executes (eg: the top of the <code>getData</code> function) it&rsquo;ll then be available through that variable.</p>
+<p>This is why you see a lot of JavaScript code with lines like:</p>
+<p><code>var that = this;</code></p></div></article><section id="comments"><h3>Feedback</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+    return $(function() {
+      window.disqus_shortname = "javascriptquiz";
+      window.disqus_identifier = document.title || 'Home';
+      window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
+      window.disqus_url = document.location.href;
+      if (typeof window.DISQUS !== "undefined") {
+        return window.DISQUS.reset({
+          reload: true,
+          config: __bind(function() {
+            this.page.identifier = document.title;
+            return this.page.url = document.location.href;
+          }, this)
+        });
+      }
+    });
+  }).call(this);</script></section></div></div><script src="http://javascriptquiz.disqus.com/embed.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script src="/scripts/modernizr.custom.js"></script><script src="/scripts/analytics.js"></script></body></html>
