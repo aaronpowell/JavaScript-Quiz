@@ -5,6 +5,8 @@ tags: []
 date: '2011-10-05'
 slug: How well do you know your operators?
 ---
+*This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see [here][4].*
+
 What is the result of executing function `b` in the following code snippet?
 
 <script src="https://gist.github.com/1238701.js"> </script>
@@ -34,3 +36,4 @@ There's a lot of interesting things which can be done with the comma operator, [
  [1]: http://twitter.com/JavaScriptQuiz
  [2]: http://es5.github.com/#x11.14
  [3]: http://javascriptweblog.wordpress.com/2011/04/04/the-javascript-comma-operator/
+ [4]: http://javascriptquiz.posterous.com/q12-operator-please
