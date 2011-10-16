@@ -74,9 +74,29 @@ console.log 'Express server listening on port %d', docpadServer.address().port
 # -------------------------------------
 # Redirects
 
+NotFound = (msg) ->
+  this.name = 'NotFound';
+  Error.call this, msg ;
+  Error.captureStackTrace this, arguments.callee ;
+
+NotFound.prototype.__proto__ = Error.prototype;
+
 # Twitter
 docpadServer.get /^\/(?:t|twitter|tweet)\/?.*$/, (req, res) ->
 	res.redirect "https://twitter.com/javascriptquiz", 301
     
-docpadServer.get /^\/q\d(1-2)*$/, (req, res) ->
+posterousRegex = /^\/q\d(1-2)*$/
+docpadServer.get posterousRegex, (req, res) ->
     res.redirect "http://javascriptquiz.com/blog" + req.url + ".html", 302
+
+docpadServer.get '*', (req, res) ->
+	throw new NotFound
+
+docpadServer.error (err, req, res, next) ->
+	if err instanceof NotFound
+		if posterousRegex.test req.url
+			res.redirect 'http://javascriptquiz.posterous.com/' + req.url, 302
+		else
+			res.redirect "http://javascriptquiz.com/404.html", 404
+	else
+		next err
