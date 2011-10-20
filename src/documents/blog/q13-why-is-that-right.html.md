@@ -24,10 +24,20 @@ This week we've taken a look at an interesting part of the JavaScript type coerc
 
 It all comes down to how the left and right hand side parts of the equality comparision works. The first thing to note is that the right-hand side part will actually be a `boolean` type, due to the [Logical NOT operator][3] being applied. This will ultimately be converted to a number for the next part of the comparison.
 
-The left hand side is then (assuming it's a [primative value][4]) an attempt will be made to convert it to a [number][5]. The thing with this is that if it's something such as an **empty array** or 
+Then with the left hand side (assuming it's a [primative value][4]) an attempt will be made to convert it to a [number][5]. The thing with this is that if it's something such as an **empty array** or **empty string** it'll end up as a **0** which is a falsy value, resulting in `0 == false`!
+
+But there's another time that this can happen, you can do it with objects. As mentioned the primative types are converted to a number, but object's are not, so how can you do it with an object? You need to override the [valueOf][6] method and make it return false. That means you can do this:
+
+    var a = { valueOf: function() { return false; } }
+
+Since we're overriding `valueOf` the expression `a == !a` will return true. To understand why we need to look back at the Abstract Edquality Commparison Algorithm. First off the expression `!a` which is the same as `!{ ... }` will **always** return `false` (as objects are coerced to `true`) and with an object when the `ToPrimative` converson happens it'll look at the [Default Value][7], which in turn is requested from valueOf, resulting in `false == false`!
+
+And this is yet another reason why you want to watch out how you're constructing your equality expressions.
 
   [1]: http://twitter.com/#!/hitsthings
   [2]: http://es5.github.com/#x11.9.3
   [3]: http://es5.github.com/#x11.4.9
   [4]: http://es5.github.com/#primitive_value
   [5]: http://es5.github.com/#x9.3
+  [6]: http://es5.github.com/#x15.2.4.4
+  [7]: http://es5.github.com/#x8.12.8
