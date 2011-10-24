@@ -89,6 +89,14 @@ posterousRegex = /^\/q\d(1-2)*$/
 docpadServer.get posterousRegex, (req, res) ->
     res.redirect "http://javascriptquiz.com/blog" + req.url + ".html", 302
 
+docpadServer.get '/api/q14', (req, res) ->
+	setTimeout ->
+		res.contentType 'application/json'  
+		res.send
+			date: new Date().toIsoDateString()
+			data: ['Hello', 'players', 'you', 'got', 'a', 'response', 'it', 'is', 'cool']
+	, Math.random(0, 40000) * 10000
+
 docpadServer.get '*', (req, res) ->
 	throw new NotFound
 
