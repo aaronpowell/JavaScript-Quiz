@@ -3,22 +3,197 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated><%= @Site.date.toIsoDateString() %></updated>
+    <updated>2011-10-24T00:40:58Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
         <email>me@aaron-powell.com</email>
     </author>
 
-    <% for Document in @Documents: %>
-        <% if Document.url.indexOf('/blog') == 0: %>
+    
+        
+    
+        
+    
+        
+    
+        
             <entry>
-                <title><%= Document.title %></title>
-                <link href="http://javascriptquiz.com<%= Document.url %>"/>
-                <updated><%= Document.date.toIsoDateString() %></updated>
-                <id>http://javascriptquiz.com<%= Document.url %></id>
-                <content type="html"><%= Document.content %></content>
+                <title>Q14 - The interval dance</title>
+                <link href="http://javascriptquiz.com/blog/q14-the-interval-dance.html"/>
+                <updated>2011-10-23T13:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q14-the-interval-dance.html</id>
+                <content type="html">
+A developer has been asked to write some JavaScript which will perform an AJAX request every 30 seconds and display the returned data on the page.
+
+The code produced by the developer looks as follows:
+
+&lt;script src=&quot;https://gist.github.com/1308134.js&quot;&gt; &lt;/script&gt;
+
+What problem can come up if the server load fluctuates, resulting in the response time changing?
+
+How would you change the code to negate the problem?
+
+Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+
+If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.
+
+Good Luck :).</content>
             </entry>
-        <% end %>
-    <% end %>
+        
+    
+        
+            <entry>
+                <title>Q13 - Why is that right?</title>
+                <link href="http://javascriptquiz.com/blog/q13-why-is-that-right.html"/>
+                <updated>2011-10-16T13:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q13-why-is-that-right.html</id>
+                <content type="html">
+Assume the following conditional statement:
+
+&lt;script src=&quot;https://gist.github.com/1291477.js&quot;&gt; &lt;/script&gt;
+
+What are the values that `a` can be for the **truth** path to be executed?
+
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;
+
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/span&gt;
+
+**Update: Answer published**
+
+* * *
+
+*I forgot to mention that this weeks post was brought to us by [Adam Ahmed][1] from Atlassian (sorry Adam!).*
+
+This week we've taken a look at an interesting part of the JavaScript type coercion. For this we need to take a dive into the ECMAScript 5 spec, in particular section [11.9.3 The Abstract Equality Comparison Algorithm][2].
+
+It all comes down to how the left and right hand side parts of the equality comparision works. The first thing to note is that the right-hand side part will actually be a `boolean` type, due to the [Logical NOT operator][3] being applied. This will ultimately be converted to a number for the next part of the comparison.
+
+Then with the left hand side (assuming it's a [primative value][4]) an attempt will be made to convert it to a [number][5]. The thing with this is that if it's something such as an **empty array** or **empty string** it'll end up as a **0** which is a falsy value, resulting in `0 == false`!
+
+But there's another time that this can happen, you can do it with objects. As mentioned the primative types are converted to a number, but object's are not, so how can you do it with an object? You need to override the [valueOf][6] method and make it return false. That means you can do this:
+
+    var a = { valueOf: function() { return false; } }
+
+Since we're overriding `valueOf` the expression `a == !a` will return true. To understand why we need to look back at the Abstract Edquality Commparison Algorithm. First off the expression `!a` which is the same as `!{ ... }` will **always** return `false` (as objects are coerced to `true`) and with an object when the `ToPrimative` converson happens it'll look at the [Default Value][7], which in turn is requested from valueOf, resulting in `false == false`!
+
+And this is yet another reason why you want to watch out how you're constructing your equality expressions.
+
+  [1]: http://twitter.com/#!/hitsthings
+  [2]: http://es5.github.com/#x11.9.3
+  [3]: http://es5.github.com/#x11.4.9
+  [4]: http://es5.github.com/#primitive_value
+  [5]: http://es5.github.com/#x9.3
+  [6]: http://es5.github.com/#x15.2.4.4
+  [7]: http://es5.github.com/#x8.12.8</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>New site</title>
+                <link href="http://javascriptquiz.com/blog/new-site.html"/>
+                <updated>2011-10-12T13:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/new-site.html</id>
+                <content type="html">
+
+You might have noticed some changes, well finally JavaScript Quiz has a new home. No more posterous and it's comment spamming, we've got a lovely new platform.
+
+You can read more about it on [my blog][1].
+
+I'll port the old questions over when I get a bit more time.
+
+  [1]: http://www.aaron-powell.com/javascript/rebuilding-javascript-quiz-in-nodejs</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>Q12 - Operator Please</title>
+                <link href="http://javascriptquiz.com/blog/q12-operator-please.html"/>
+                <updated>2011-10-04T13:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q12-operator-please.html</id>
+                <content type="html">
+*This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see [here][4].*
+
+What is the result of executing function `b` in the following code snippet?
+
+&lt;script src=&quot;https://gist.github.com/1238701.js&quot;&gt; &lt;/script&gt;
+
+Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/span&gt;  
+
+Updated: Answer published.
+
+Follow [@JavaScriptQuiz][1] to know when the answer is up and to catch the next question.
+
+Happy hacking.
+
+* * *
+
+The result of executing the function **b** is **2**, and this is because of the [comma is an operator][2] in JavaScript! The comma operator is the very bottom of the operator evaluation stack, meaning a trailing comma will cause following commands to be evaluated and in this case, returned.
+
+The comma operator is quite often seen used in for loops like so:
+
+`for(var i = 0, j = array.length; i &lt; j; i++)`
+
+Here we're using the comma operator to chain variable assignments.
+
+There's a lot of interesting things which can be done with the comma operator, [have a read here for more ideas][3].
+
+ [1]: http://twitter.com/JavaScriptQuiz
+ [2]: http://es5.github.com/#x11.14
+ [3]: http://javascriptweblog.wordpress.com/2011/04/04/the-javascript-comma-operator/
+ [4]: http://javascriptquiz.posterous.com/q12-operator-please</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>Q11 - Spot the bug</title>
+                <link href="http://javascriptquiz.com/blog/q11-spot-the-bug.html"/>
+                <updated>2011-09-27T14:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q11-spot-the-bug.html</id>
+                <content type="html">
+&lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q11-spot-the-bug&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There is a bug in the following code, without running it can you spot where the bug is?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/1236887&quot;&gt;https://gist.github.com/1236887&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-decoration: line-through;&quot;&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/span&gt; &lt;strong&gt;Update:&lt;/strong&gt; answer now posted.&lt;/p&gt;
+&lt;p&gt;Follow &lt;a href=&quot;http://twitter.com/JavaScriptQuiz&quot;&gt;@JavaScriptQuiz&lt;/a&gt; to know when the answer is up and to catch the next question.&lt;/p&gt;
+&lt;p&gt;Happy hacking.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The bug is that the method &lt;code&gt;showData&lt;/code&gt; does not exist on the &lt;code&gt;window&lt;/code&gt; object so when the callback from the AJAX response happens it will fall over.&lt;/p&gt;
+&lt;p&gt;This happens because of the way the &lt;code&gt;this&lt;/code&gt; value is handled within JavaScript. In JavaScript the &lt;code&gt;this&lt;/code&gt; value is scoped to the current function and is not at a class level like you would expect in compiled languages.&lt;/p&gt;
+&lt;p&gt;But you can use JavaScript closures to ensure that this doesn&amp;rsquo;t catch you out, if you assign the &lt;code&gt;this&lt;/code&gt; value to a variable before the callback executes (eg: the top of the &lt;code&gt;getData&lt;/code&gt; function) it&amp;rsquo;ll then be available through that variable.&lt;/p&gt;
+&lt;p&gt;This is why you see a lot of JavaScript code with lines like:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var that = this;&lt;/code&gt;&lt;/p&gt;</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>Q10 - Who shot first?</title>
+                <link href="http://javascriptquiz.com/blog/q10-who-shot-first.html"/>
+                <updated>2011-09-18T14:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q10-who-shot-first.html</id>
+                <content type="html">
+&lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q10-who-shot-first&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Without executing the following code snippet, &lt;em&gt;who shot first&lt;/em&gt;? (Accordnig to the majority of JavaScript runtimes)&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/1225982.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;In addition do the first two timeouts execute in place or not? If not, when do they execute?&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;&lt;br /&gt;Update: Answer posted&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/p&gt;
+&lt;p&gt;Follow&amp;nbsp;&lt;a href=&quot;http://twitter.com/javascriptquiz&quot;&gt;@JavaScriptQuiz&lt;/a&gt;&amp;nbsp;to know when the answer is up and to catch the next question.&lt;/p&gt;
+&lt;div&gt;Happy hacking.&lt;/div&gt;
+&lt;hr /&gt;
+&lt;p&gt;The answer I was looking for to this weeks question is &lt;strong&gt;Han&lt;/strong&gt;&amp;nbsp;because after all &lt;a href=&quot;http://en.wikipedia.org/wiki/Han_shot_first&quot;&gt;Han always shot first&lt;/a&gt;&amp;nbsp;;). Technically the answer to this weeks question is &lt;em&gt;it depends&lt;/em&gt;&amp;nbsp;because timers work slightly different in each JavaScript runtime but to be closes to &lt;a href=&quot;http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#timers&quot;&gt;the spec&lt;/a&gt;&amp;nbsp;you're looking at Han.&lt;/p&gt;
+&lt;p&gt;The reason for this is that according to the spec the minimum for a timeout in JavaScript is 4 milliseconds and any timeout that is less than 4 milliseconds will be increased to 4 milliseconds. This means that the two functions have &lt;strong&gt;the same timeout value&lt;/strong&gt;&amp;nbsp;and they will be executed in the order they are added to the timeout queue.&lt;/p&gt;
+&lt;p&gt;So next time you're using small timeouts be sure to test them across your different runtimes so that they actually work as expected.&lt;/p&gt;</content>
+            </entry>
+        
+    
 </feed>

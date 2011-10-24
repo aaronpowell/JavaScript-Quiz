@@ -18,9 +18,11 @@ if @Documents.relatedDocuments && @Document.relatedDocuments.length
           li ->
             span -> doc.date
             a href: doc.url, -> doc.title
-            
+
+a href:"https://twitter.com/share", class:"twitter-share-button", data: {count:"horizontal", via:"javascriptquiz"}, -> "Tweet"
+script type:"text/javascript", src:"//platform.twitter.com/widgets.js", -> ' '
 section '#comments', ->
-  h3 -> 'Feedback'
+  h3 -> 'Answers'
   div '#disqus_thread', -> '&nbsp;'
   coffeescript ->
     $ ->
