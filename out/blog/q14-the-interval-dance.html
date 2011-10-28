@@ -12,7 +12,19 @@
 
 <p>If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</p>
 
-<p>Good Luck :).</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+<p>Good Luck :).</p>
+
+<hr />
+
+<p>In this weeks question we were looking at a common mistake that people make when using the <code>setInterval</code> method in JavaScript. With <code>setInterval</code> the function that you pass in will always be executed when the timeout period rolls over. This is why you can run into an issue when you're using it to perform operations which you don't control the duration of, a server call.</p>
+
+<p>Because of this a new design pattern has come into common use, the <a href="http://www.erichynds.com/javascript/a-recursive-settimeout-pattern/">Recursive SetTimeout Pattern</a>. The idea behind this pattern is that you perform your operation in a <code>setTimeout</code> callback function (using the time period you would in the interval) and within the timeout execution you kick off a new timeout.</p>
+
+<p>Here is the code for the answer:</p>
+
+<script src="https://gist.github.com/1321278.js"> </script>
+
+<p>What I've done is added a name to the function, <code>go</code>, and added a new call in the success callback that will kick off the new timeout call.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
       window.disqus_shortname = "javascriptquiz";
       window.disqus_identifier = document.title || 'Home';
