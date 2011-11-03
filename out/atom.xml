@@ -3,7 +3,7 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated>2011-10-31T01:46:50Z</updated>
+    <updated>2011-11-03T12:03:10Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
@@ -15,7 +15,7 @@
             <entry>
                 <title>Q15 - What's the index?</title>
                 <link href="http://javascriptquiz.com/blog/q15-what-s-the-index.html"/>
-                <updated>2011-10-31T00:00:00Z</updated>
+                <updated>2011-10-30T13:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q15-what-s-the-index.html</id>
                 <content type="html">
 
@@ -25,12 +25,56 @@ Take the following JavaScript code:
 
 How can I change the *if condition statement* so that I can compare against `true` while still using the `String.indexOf` method?
 
-Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;
 
-If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/span&gt;
 
-Good Luck :).</content>
+Good Luck :).
+
+* * *
+
+With this question we're looking at another seldom used operator in JavaScript... `~` or the [bitwise NOT operator][1]. JavaScript has a number of [bitwise operators][2] and they are used to convert an operand into a sequence of 32 bits.
+
+The way the bitwise NOT operator works is through this formular ([source][3]):
+
+    -(x + 1)
+
+So when we use this with the potential results of the `String.indexOf` we shift the value by one and then rely on the falsy values in JavaScript to take care of it. Let's assume the following code:
+
+    var index = 'abcd'.indexOf('a');
+    if(~index) {
+        console.log('found it!');
+    }
+
+Now if we think back to the above formular, it means we're really doing this:
+
+    if(-(0 + 1))
+
+    if(-(1))
+
+    if(true)
+
+And what if the `index` wasn't found? We'll end up with `-1` wont we? Let's pass that through our bitwise NOT?
+
+    if(-(-1 + 1))
+
+    if(-(0))
+
+    if(false)
+
+And there we go, now we've got a false value properly!
+
+Enjoy the bitwise operators :).
+
+
+  [1]: http://es5.github.com/#x11.4.8
+  [2]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators
+  [3]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators#.7E_(Bitwise_NOT)</content>
             </entry>
+        
+    
+        
+    
         
     
         
@@ -39,7 +83,7 @@ Good Luck :).</content>
             <entry>
                 <title>Q14 - The interval dance</title>
                 <link href="http://javascriptquiz.com/blog/q14-the-interval-dance.html"/>
-                <updated>2011-10-24T00:00:00Z</updated>
+                <updated>2011-10-23T13:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q14-the-interval-dance.html</id>
                 <content type="html">
 A developer has been asked to write some JavaScript which will perform an AJAX request every 30 seconds and display the returned data on the page.
@@ -78,7 +122,7 @@ What I've done is added a name to the function, `go`, and added a new call in th
             <entry>
                 <title>Q13 - Why is that right?</title>
                 <link href="http://javascriptquiz.com/blog/q13-why-is-that-right.html"/>
-                <updated>2011-10-17T00:00:00Z</updated>
+                <updated>2011-10-16T13:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q13-why-is-that-right.html</id>
                 <content type="html">
 Assume the following conditional statement:
@@ -122,12 +166,10 @@ And this is yet another reason why you want to watch out how you're constructing
         
     
         
-    
-        
             <entry>
                 <title>New site</title>
                 <link href="http://javascriptquiz.com/blog/new-site.html"/>
-                <updated>2011-10-13T00:00:00Z</updated>
+                <updated>2011-10-12T13:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/new-site.html</id>
                 <content type="html">
 
@@ -142,12 +184,10 @@ I'll port the old questions over when I get a bit more time.
         
     
         
-    
-        
             <entry>
                 <title>Q12 - Operator Please</title>
                 <link href="http://javascriptquiz.com/blog/q12-operator-please.html"/>
-                <updated>2011-10-05T00:00:00Z</updated>
+                <updated>2011-10-04T13:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q12-operator-please.html</id>
                 <content type="html">
 *This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see [here][4].*
@@ -189,7 +229,7 @@ There's a lot of interesting things which can be done with the comma operator, [
             <entry>
                 <title>Q11 - Spot the bug</title>
                 <link href="http://javascriptquiz.com/blog/q11-spot-the-bug.html"/>
-                <updated>2011-09-28T01:00:00Z</updated>
+                <updated>2011-09-27T14:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q11-spot-the-bug.html</id>
                 <content type="html">
 &lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q11-spot-the-bug&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
@@ -213,7 +253,7 @@ There's a lot of interesting things which can be done with the comma operator, [
             <entry>
                 <title>Q10 - Who shot first?</title>
                 <link href="http://javascriptquiz.com/blog/q10-who-shot-first.html"/>
-                <updated>2011-09-19T01:00:00Z</updated>
+                <updated>2011-09-18T14:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q10-who-shot-first.html</id>
                 <content type="html">
 &lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q10-who-shot-first&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
