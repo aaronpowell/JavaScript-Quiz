@@ -19,4 +19,18 @@ If you don't want your answer public, please post a comment like 'playing at hom
 
 Good Luck :).
 
+* *
+
+This weeks question (ok, it ran over two weeks :P) was more about knowing JavaScript APIs.
+
+The shortest way (that I've been able to work out) is to use the [Array.slice][2] method:
+
+    [1,2,3].slice().sort();
+    
+Passing no arguments to the `slice` method it will default to `0` and return a copy of the array.
+
+`slice` is the easiest way to shallow-clone an array.
+
+
   [1]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/sort
+  [2]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/slice
