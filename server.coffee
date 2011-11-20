@@ -5,16 +5,7 @@ express = require 'express'
 # Variables
 oneDay = 86400000
 expiresOffset = oneDay
-debug = true
 
-# -------------------------------------
-# Generator
-# console.log 'Time to regenerate the site'
-
-# builder = docpad.createInstance { }
-# builder.generateAction (err) -> console.log err 
-
-# console.log 'Aaaaaand we are done!'
 
 # -------------------------------------
 # Server
@@ -22,16 +13,16 @@ debug = true
 # Configuration
 masterPort = process.env.PORT || 10113
 
-# Create Servers
-docpadServer = express.createServer()
-masterServer = docpadServer
+# Create Server
+masterServer = express.createServer()
 
 # Setup DocPad
+docpadPort = masterPort
+docpadServer = masterServer
 docpadInstance = docpad.createInstance {
-	port: masterPort
+	port: docpadPort
 	maxAge: expiresOffset
-	server: docpadServer
-	logLevel: 6
+	server: masterServer
 }
 
 # -------------------------------------
@@ -39,41 +30,44 @@ docpadInstance = docpad.createInstance {
 
 # Configure
 docpadServer.configure ->
-	# Redirect Middleware
+	### Correct Domain Middleware
 	docpadServer.use (req,res,next) ->
-		if req.headers.host in ['www.javascripquiz.com']
-			res.redirect 'http://javascripquiz.com'+req.url, 301
+		if req.headers.host in ['www.yourwebsite.com']
+			res.redirect 'http://yourwebsite.com'+req.url, 301
 			res.end()
 		else
 			next()
+	###
 
 	# Static Middleware
-	docpadInstance.serverAction (err) -> throw err  if err
+	# docpadInstance.serverAction (err) -> throw err  if err
+	docpadInstance.action 'server'
 
 	# Router Middleware
-	docpadServer.use docpadServer.router
+	# docpadServer.use docpadServer.router
 
 	# 404 Middleware
-	docpadServer.use (req,res,next) ->
-		res.send(404)
+	# docpadServer.use (req,res,next) ->
+	#	res.send(404)
 
 
 # -------------------------------------
 # Start Server
 
 # Start Server
-docpadServer.listen masterPort
-console.log 'Express server listening on port %d', docpadServer.address().port
+# masterServer.listen masterPort
+console.log 'Express server listening on port %d', masterServer.address().port
 
 # DNS Servers
-# masterServer.use express.vhost 'balupton.*', docpadServer
-# masterServer.use express.vhost 'balupton.*.*', docpadServer
-# masterServer.use express.vhost 'lupton.*', docpadServer
+# masterServer.use express.vhost 'yourwebsite.*', docpadServer
 
 
 # -------------------------------------
 # Redirects
 
+# Place your redirects here
+
+###
 NotFound = (msg) ->
   this.name = 'NotFound';
   Error.call this, msg ;
@@ -108,3 +102,5 @@ docpadServer.error (err, req, res, next) ->
 			res.redirect "http://javascriptquiz.com/404.html", 404
 	else
 		next err
+
+###
