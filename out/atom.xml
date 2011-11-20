@@ -3,13 +3,33 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated>2011-11-20T11:54:21Z</updated>
+    <updated>2011-11-20T12:51:29Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
         <email>me@aaron-powell.com</email>
     </author>
 
+    
+        
+            <entry>
+                <title>Q17 - Really negative</title>
+                <link href="http://javascriptquiz.com/blog/q17-really-negative.html"/>
+                <updated>2011-11-21T00:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q17-really-negative.html</id>
+                <content type="html">
+
+Under what conditions would the following code snippet return a result of `true`?
+
+&lt;script src=&quot;https://gist.github.com/1380123.js&quot;&gt; &lt;/script&gt;
+
+Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+
+If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.
+
+Good Luck :).</content>
+            </entry>
+        
     
         
     
