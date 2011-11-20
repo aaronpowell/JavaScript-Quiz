@@ -3,13 +3,17 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated>2011-11-06T23:12:35Z</updated>
+    <updated>2011-11-20T10:14:14Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
         <email>me@aaron-powell.com</email>
     </author>
 
+    
+        
+    
+        
     
         
             <entry>
@@ -27,13 +31,27 @@ I've seen this as the source of many bugs but it's easy to avoid.
 
 Sort an array *without* modifying the source array in **the fewest characters possible**.
 
-Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;
 
-If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.
+&lt;span style=&quot;text-decoration: line-through;&quot;&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/span&gt;
 
 Good Luck :).
 
-  [1]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/sort</content>
+* * *
+
+This weeks question (ok, it ran over two weeks :P) was more about knowing JavaScript APIs.
+
+The shortest way (that I've been able to work out) is to use the [Array.slice][2] method:
+
+    [1,2,3].slice().sort();
+    
+Passing no arguments to the `slice` method it will default to `0` and return a copy of the array.
+
+`slice` is the easiest way to shallow-clone an array.
+
+
+  [1]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/sort
+  [2]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/slice</content>
             </entry>
         
     
@@ -188,8 +206,6 @@ And this is yet another reason why you want to watch out how you're constructing
         
     
         
-    
-        
             <entry>
                 <title>New site</title>
                 <link href="http://javascriptquiz.com/blog/new-site.html"/>
@@ -205,8 +221,6 @@ I'll port the old questions over when I get a bit more time.
 
   [1]: http://www.aaron-powell.com/javascript/rebuilding-javascript-quiz-in-nodejs</content>
             </entry>
-        
-    
         
     
         
@@ -255,7 +269,7 @@ There's a lot of interesting things which can be done with the comma operator, [
             <entry>
                 <title>Q11 - Spot the bug</title>
                 <link href="http://javascriptquiz.com/blog/q11-spot-the-bug.html"/>
-                <updated>2011-09-28T01:00:00Z</updated>
+                <updated>2011-09-28T00:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q11-spot-the-bug.html</id>
                 <content type="html">
 &lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q11-spot-the-bug&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
@@ -279,7 +293,7 @@ There's a lot of interesting things which can be done with the comma operator, [
             <entry>
                 <title>Q10 - Who shot first?</title>
                 <link href="http://javascriptquiz.com/blog/q10-who-shot-first.html"/>
-                <updated>2011-09-19T01:00:00Z</updated>
+                <updated>2011-09-19T00:00:00Z</updated>
                 <id>http://javascriptquiz.com/blog/q10-who-shot-first.html</id>
                 <content type="html">
 &lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q10-who-shot-first&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;

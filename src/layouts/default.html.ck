@@ -4,17 +4,17 @@ html ->
     meta charset: 'utf-8'
     meta content: "IE=edge,chrome=1", "http-equiv": "X-UA-Compatible"
     meta content: "text/html; charset=utf-8", "http-equiv": "content-type"
-    title -> @Document.title
-    
+    title -> @document.title
+
     meta content: "Aaron Powell", name: "author"
     meta content: "me@aaron-powell.com", name: "email"
-    meta content: @Document.title, name: "title"
+    meta content: @document.title, name: "title"
     meta content: "Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions", name: "description"
     meta content: "width=device-width", name: "viewport"
     link href: "/styles/site.css", rel: "stylesheet", type: "text/css"
     link href:'/favicon.ico', rel:'shortcut icon', type:'image/x-icon'
     script src: "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
-  body "class": "#{@Document.title.toLowerCase().replace(' ', '-') || "home" }", ->
+  body "class": "#{@document.title.toLowerCase().replace(' ', '-') || "home" }", ->
     div "#main", ->
       header ->
         h1 ->

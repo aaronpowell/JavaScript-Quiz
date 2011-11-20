@@ -14,7 +14,7 @@ aside ->
 
 section ".posts", ->
     nav ".linklist", typeof:"dc:collection", ->
-    for Document in @Documents
+    for Document in @documents
       if Document.url.indexOf('/blog') == 0
           section ".post-link", typeof:"sioc:Post", about: Document.url, ->
             # regex = /(\d{4})-(\d{2})-(\d{2})/

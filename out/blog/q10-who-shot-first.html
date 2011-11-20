@@ -13,6 +13,7 @@
 <p>The reason for this is that according to the spec the minimum for a timeout in JavaScript is 4 milliseconds and any timeout that is less than 4 milliseconds will be increased to 4 milliseconds. This means that the two functions have <strong>the same timeout value</strong>&nbsp;and they will be executed in the order they are added to the timeout queue.</p>
 <p>So next time you're using small timeouts be sure to test them across your different runtimes so that they actually work as expected.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
+      var _this = this;
       window.disqus_shortname = "javascriptquiz";
       window.disqus_identifier = document.title || 'Home';
       window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
@@ -20,10 +21,10 @@
       if (typeof window.DISQUS !== "undefined") {
         return window.DISQUS.reset({
           reload: true,
-          config: __bind(function() {
-            this.page.identifier = document.title;
-            return this.page.url = document.location.href;
-          }, this)
+          config: function() {
+            _this.page.identifier = document.title;
+            return _this.page.url = document.location.href;
+          }
         });
       }
     });

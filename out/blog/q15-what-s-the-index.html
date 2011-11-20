@@ -4,51 +4,48 @@
 
 <p>How can I change the <em>if condition statement</em> so that I can compare against <code>true</code> while still using the <code>String.indexOf</code> method?</p>
 
-<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span></p>
+<span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span>
 
-<p><span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span></p>
+<span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>
 
 <p>Good Luck :).</p>
 
-<hr />
+<hr></hr>
 
-<p>With this question we're looking at another seldom used operator in JavaScript... <code>~</code> or the <a href="http://es5.github.com/#x11.4.8">bitwise NOT operator</a>. JavaScript has a number of <a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise operators</a> and they are used to convert an operand into a sequence of 32 bits.</p>
+<p>With this question we&#39;re looking at another seldom used operator in JavaScript... <code>~</code> or the <a href="http://es5.github.com/#x11.4.8">bitwise NOT operator</a>. JavaScript has a number of <a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise operators</a> and they are used to convert an operand into a sequence of 32 bits.</p>
 
-<p>The way the bitwise NOT operator works is through this formular (<a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators#.7E_" title="Bitwise_NOT">source</a>):</p>
+<p>The way the bitwise NOT operator works is through this formular (<a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators#.7E_(Bitwise_NOT)">source</a>):</p>
 
-<pre><code>-(x + 1)
-</code></pre>
+<pre><code>-(x + 1)</code></pre>
 
-<p>So when we use this with the potential results of the <code>String.indexOf</code> we shift the value by one and then rely on the falsy values in JavaScript to take care of it. Let's assume the following code:</p>
+<p>So when we use this with the potential results of the <code>String.indexOf</code> we shift the value by one and then rely on the falsy values in JavaScript to take care of it. Let&#39;s assume the following code:</p>
 
-<pre><code>var index = 'abcd'.indexOf('a');
+<pre><code>var index = &#39;abcd&#39;.indexOf(&#39;a&#39;);
 if(~index) {
-    console.log('found it!');
-}
-</code></pre>
+    console.log(&#39;found it!&#39;);
+}</code></pre>
 
-<p>Now if we think back to the above formular, it means we're really doing this:</p>
+<p>Now if we think back to the above formular, it means we&#39;re really doing this:</p>
 
 <pre><code>if(-(0 + 1))
 
 if(-(1))
 
-if(true)
-</code></pre>
+if(true)</code></pre>
 
-<p>And what if the <code>index</code> wasn't found? We'll end up with <code>-1</code> wont we? Let's pass that through our bitwise NOT?</p>
+<p>And what if the <code>index</code> wasn&#39;t found? We&#39;ll end up with <code>-1</code> wont we? Let&#39;s pass that through our bitwise NOT?</p>
 
 <pre><code>if(-(-1 + 1))
 
 if(-(0))
 
-if(false)
-</code></pre>
+if(false)</code></pre>
 
-<p>And there we go, now we've got a false value properly!</p>
+<p>And there we go, now we&#39;ve got a false value properly!</p>
 
 <p>Enjoy the bitwise operators :).</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
+      var _this = this;
       window.disqus_shortname = "javascriptquiz";
       window.disqus_identifier = document.title || 'Home';
       window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
@@ -56,10 +53,10 @@ if(false)
       if (typeof window.DISQUS !== "undefined") {
         return window.DISQUS.reset({
           reload: true,
-          config: __bind(function() {
-            this.page.identifier = document.title;
-            return this.page.url = document.location.href;
-          }, this)
+          config: function() {
+            _this.page.identifier = document.title;
+            return _this.page.url = document.location.href;
+          }
         });
       }
     });

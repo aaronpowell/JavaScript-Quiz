@@ -8,15 +8,15 @@
 
 <p>How would you change the code to negate the problem?</p>
 
-<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span></p>
+<span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span>
 
-<p><span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span></p>
+<span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>
 
 <p>Good Luck :).</p>
 
-<hr />
+<hr></hr>
 
-<p>In this weeks question we were looking at a common mistake that people make when using the <code>setInterval</code> method in JavaScript. With <code>setInterval</code> the function that you pass in will always be executed when the timeout period rolls over. This is why you can run into an issue when you're using it to perform operations which you don't control the duration of, a server call.</p>
+<p>In this weeks question we were looking at a common mistake that people make when using the <code>setInterval</code> method in JavaScript. With <code>setInterval</code> the function that you pass in will always be executed when the timeout period rolls over. This is why you can run into an issue when you&#39;re using it to perform operations which you don&#39;t control the duration of, a server call.</p>
 
 <p>Because of this a new design pattern has come into common use, the <a href="http://www.erichynds.com/javascript/a-recursive-settimeout-pattern/">Recursive SetTimeout Pattern</a>. The idea behind this pattern is that you perform your operation in a <code>setTimeout</code> callback function (using the time period you would in the interval) and within the timeout execution you kick off a new timeout.</p>
 
@@ -24,8 +24,9 @@
 
 <script src="https://gist.github.com/1321278.js"> </script>
 
-<p>What I've done is added a name to the function, <code>go</code>, and added a new call in the success callback that will kick off the new timeout call.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+<p>What I&#39;ve done is added a name to the function, <code>go</code>, and added a new call in the success callback that will kick off the new timeout call.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
+      var _this = this;
       window.disqus_shortname = "javascriptquiz";
       window.disqus_identifier = document.title || 'Home';
       window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
@@ -33,10 +34,10 @@
       if (typeof window.DISQUS !== "undefined") {
         return window.DISQUS.reset({
           reload: true,
-          config: __bind(function() {
-            this.page.identifier = document.title;
-            return this.page.url = document.location.href;
-          }, this)
+          config: function() {
+            _this.page.identifier = document.title;
+            return _this.page.url = document.location.href;
+          }
         });
       }
     });

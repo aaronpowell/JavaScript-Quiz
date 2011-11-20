@@ -4,31 +4,31 @@
 
 <p>What are the values that <code>a</code> can be for the <strong>truth</strong> path to be executed?</p>
 
-<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span></p>
+<span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span>
 
-<p><span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span></p>
+<span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>
 
 <p><strong>Update: Answer published</strong></p>
 
-<hr />
+<hr></hr>
 
 <p><em>I forgot to mention that this weeks post was brought to us by <a href="http://twitter.com/#!/hitsthings">Adam Ahmed</a> from Atlassian (sorry Adam!).</em></p>
 
-<p>This week we've taken a look at an interesting part of the JavaScript type coercion. For this we need to take a dive into the ECMAScript 5 spec, in particular section <a href="http://es5.github.com/#x11.9.3">11.9.3 The Abstract Equality Comparison Algorithm</a>.</p>
+<p>This week we&#39;ve taken a look at an interesting part of the JavaScript type coercion. For this we need to take a dive into the ECMAScript 5 spec, in particular section <a href="http://es5.github.com/#x11.9.3">11.9.3 The Abstract Equality Comparison Algorithm</a>.</p>
 
 <p>It all comes down to how the left and right hand side parts of the equality comparision works. The first thing to note is that the right-hand side part will actually be a <code>boolean</code> type, due to the <a href="http://es5.github.com/#x11.4.9">Logical NOT operator</a> being applied. This will ultimately be converted to a number for the next part of the comparison.</p>
 
-<p>Then with the left hand side (assuming it's a <a href="http://es5.github.com/#primitive_value">primative value</a>) an attempt will be made to convert it to a <a href="http://es5.github.com/#x9.3">number</a>. The thing with this is that if it's something such as an <strong>empty array</strong> or <strong>empty string</strong> it'll end up as a <strong>0</strong> which is a falsy value, resulting in <code>0 == false</code>!</p>
+<p>Then with the left hand side (assuming it&#39;s a <a href="http://es5.github.com/#primitive_value">primative value</a>) an attempt will be made to convert it to a <a href="http://es5.github.com/#x9.3">number</a>. The thing with this is that if it&#39;s something such as an <strong>empty array</strong> or <strong>empty string</strong> it&#39;ll end up as a <strong>0</strong> which is a falsy value, resulting in <code>0 == false</code>!</p>
 
-<p>But there's another time that this can happen, you can do it with objects. As mentioned the primative types are converted to a number, but object's are not, so how can you do it with an object? You need to override the <a href="http://es5.github.com/#x15.2.4.4">valueOf</a> method and make it return false. That means you can do this:</p>
+<p>But there&#39;s another time that this can happen, you can do it with objects. As mentioned the primative types are converted to a number, but object&#39;s are not, so how can you do it with an object? You need to override the <a href="http://es5.github.com/#x15.2.4.4">valueOf</a> method and make it return false. That means you can do this:</p>
 
-<pre><code>var a = { valueOf: function() { return false; } }
-</code></pre>
+<pre><code>var a = { valueOf: function() { return false; } }</code></pre>
 
-<p>Since we're overriding <code>valueOf</code> the expression <code>a == !a</code> will return true. To understand why we need to look back at the Abstract Edquality Commparison Algorithm. First off the expression <code>!a</code> which is the same as <code>!{ ... }</code> will <strong>always</strong> return <code>false</code> (as objects are coerced to <code>true</code>) and with an object when the <code>ToPrimative</code> converson happens it'll look at the <a href="http://es5.github.com/#x8.12.8">Default Value</a>, which in turn is requested from valueOf, resulting in <code>false == false</code>!</p>
+<p>Since we&#39;re overriding <code>valueOf</code> the expression <code>a == !a</code> will return true. To understand why we need to look back at the Abstract Edquality Commparison Algorithm. First off the expression <code>!a</code> which is the same as <code>!{ ... }</code> will <strong>always</strong> return <code>false</code> (as objects are coerced to <code>true</code>) and with an object when the <code>ToPrimative</code> converson happens it&#39;ll look at the <a href="http://es5.github.com/#x8.12.8">Default Value</a>, which in turn is requested from valueOf, resulting in <code>false == false</code>!</p>
 
-<p>And this is yet another reason why you want to watch out how you're constructing your equality expressions.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+<p>And this is yet another reason why you want to watch out how you&#39;re constructing your equality expressions.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
+      var _this = this;
       window.disqus_shortname = "javascriptquiz";
       window.disqus_identifier = document.title || 'Home';
       window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
@@ -36,10 +36,10 @@
       if (typeof window.DISQUS !== "undefined") {
         return window.DISQUS.reset({
           reload: true,
-          config: __bind(function() {
-            this.page.identifier = document.title;
-            return this.page.url = document.location.href;
-          }, this)
+          config: function() {
+            _this.page.identifier = document.title;
+            return _this.page.url = document.location.href;
+          }
         });
       }
     });

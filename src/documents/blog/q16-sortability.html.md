@@ -13,13 +13,13 @@ I've seen this as the source of many bugs but it's easy to avoid.
 
 Sort an array *without* modifying the source array in **the fewest characters possible**.
 
-Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+<span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span>
 
-If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.
+<span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>
 
 Good Luck :).
 
-* *
+* * *
 
 This weeks question (ok, it ran over two weeks :P) was more about knowing JavaScript APIs.
 

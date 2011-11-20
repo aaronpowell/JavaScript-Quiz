@@ -3,14 +3,14 @@
 	<title>JavaScript Quiz</title>
 	<link href="http://javascriptquiz.com/atom.xml" rel="self"/>
 	<link href="http://javascriptquiz.com"/>
-	<updated><%= @Site.date.toIsoDateString() %></updated>
+	<updated><%= @site.date.toIsoDateString() %></updated>
 	<id>http://javascriptquiz.com</id>
 	<author>
 		<name>Aaron Powell</name>
 		<email>me@aaron-powell.com</email>
 	</author>
 
-	<% for Document in @Documents: %>
+	<% for Document in @documents: %>
 		<% if Document.url.indexOf('/blog') == 0: %>
 			<entry>
 				<title><%= Document.title %></title>

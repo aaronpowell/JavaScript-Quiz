@@ -1,24 +1,14 @@
 ---
 layout: default
 ---
-article '#post.post ' + @Document.class, ->
+article '#post.post ' + @content.class, ->
   h1 ->
-    @Document.title
+    @document.title
   h3 ->
-    @Document.date.toDateString()
+    @document.date.toDateString()
   div ->
     @content
     
-if @Documents.relatedDocuments && @Document.relatedDocuments.length
-  section '#related', ->
-    h3 -> 'Related Posts'
-    nav '.linklist', ->
-      ul ->
-        for doc in @Document.relatedDocument
-          li ->
-            span -> doc.date
-            a href: doc.url, -> doc.title
-
 a href:"https://twitter.com/share", class:"twitter-share-button", data: {count:"horizontal", via:"javascriptquiz"}, -> "Tweet"
 script type:"text/javascript", src:"//platform.twitter.com/widgets.js", -> ' '
 section '#comments', ->
