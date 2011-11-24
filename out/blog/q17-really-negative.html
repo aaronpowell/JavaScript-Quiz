@@ -2,11 +2,31 @@
 
 <script src="https://gist.github.com/1380123.js"> </script>
 
-<p>Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</p>
+<span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span>
 
-<p>If you don&#39;t want your answer public, please post a comment like &#39;playing at home&#39; so I can at least guage how many people are participating and whether the questions are useful.</p>
+<span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>
 
-<p>Good Luck :).</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+<p>Good Luck :).</p>
+
+<hr></hr>
+
+<p>The JavaScript <a href="http://es5.github.com/#x8.5">Number</a> type is an implementation of IEEE 754 and it has all the really exciting things that come along with that.</p>
+
+<p>One of the things that is included in the numbering thing is the implementation of <code>-0</code>.</p>
+
+<p>If you guessed that <code>-0</code> will return <code>true</code> then you&#39;re right, well at least you&#39;re <em>partially</em> right (excluding values that coerce to 0), there&#39;s actually another value (well, range of values) that will do it...</p>
+
+<p>Any number less than or equal to <code>-Math.pow(2, -1074)</code> will also return <code>-Infinity</code> when the divisor of 1, thus resulting in true being retured. Sorry I&#39;m not enough of a math nerd to tell you <em>why</em>, just that it&#39;s an interesting footnote. If you actually want to test for <code>-0</code> then you want to do this:</p>
+
+<pre><code>var fn = function(x) {
+    return x === 0 &amp;&amp; (1/x) === -Infinitiy;
+};</code></pre>
+
+<p>Hang on though, why does <code>-0</code> equal <code>0</code> (or <code>+0</code>)?</p>
+
+<p>Well if you take a look <a href="http://es5.github.com/#x11.9.6">11.9.6 - The Strict Equality Comparison Algorithm</a> (and the <a href="http://es5.github.com/#x11.9.3">11.9.3 The Abstract Equality Comparison Algorithm</a>) if they are either forms of <code>0</code> they will be treated as having the same sign.</p>
+
+<p>And there you have it, that&#39;s how to test for <code>-0</code> separately from <code>+0</code>. The usefulness of this is up to you to work out :P.</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
       var _this = this;
       window.disqus_shortname = "javascriptquiz";
