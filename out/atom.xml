@@ -3,13 +3,35 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated>2011-11-24T12:54:41Z</updated>
+    <updated>2011-11-27T10:09:44Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
         <email>me@aaron-powell.com</email>
     </author>
 
+    
+        
+            <entry>
+                <title>Q18 - Powerful properties</title>
+                <link href="http://javascriptquiz.com/blog/q18-powerful-properties.html"/>
+                <updated>2011-11-28T00:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q18-powerful-properties.html</id>
+                <content type="html">
+
+The following example uses a ECMAScript 5 properties and also fails.
+
+How can you make it not fail?
+
+&lt;script src=&quot;https://gist.github.com/1397338.js&quot;&gt; &lt;/script&gt;
+
+Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.
+
+If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.
+
+Good Luck :).</content>
+            </entry>
+        
     
         
             <entry>
@@ -53,10 +75,6 @@ And there you have it, that's how to test for `-0` separately from `+0`. The use
   [2]: http://es5.github.com/#x11.9.6
   [3]: http://es5.github.com/#x11.9.3</content>
             </entry>
-        
-    
-        
-    
         
     
         
@@ -162,8 +180,6 @@ Enjoy the bitwise operators :).
         
     
         
-    
-        
             <entry>
                 <title>Q14 - The interval dance</title>
                 <link href="http://javascriptquiz.com/blog/q14-the-interval-dance.html"/>
@@ -200,6 +216,8 @@ What I've done is added a name to the function, `go`, and added a new call in th
 
   [1]: http://www.erichynds.com/javascript/a-recursive-settimeout-pattern/</content>
             </entry>
+        
+    
         
     
         
@@ -247,6 +265,8 @@ And this is yet another reason why you want to watch out how you're constructing
   [6]: http://es5.github.com/#x15.2.4.4
   [7]: http://es5.github.com/#x8.12.8</content>
             </entry>
+        
+    
         
     
         
@@ -331,6 +351,8 @@ There's a lot of interesting things which can be done with the comma operator, [
 &lt;p&gt;This is why you see a lot of JavaScript code with lines like:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;var that = this;&lt;/code&gt;&lt;/p&gt;</content>
             </entry>
+        
+    
         
     
         
