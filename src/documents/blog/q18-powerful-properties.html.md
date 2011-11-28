@@ -7,7 +7,7 @@ slug: What can you do with ES5 properties?
 
 The following example uses a ECMAScript 5 properties and also fails.
 
-How can you make it not fail?
+Is it possible to use `defineProperty` on a frozen object and have it not fail?
 
 <script src="https://gist.github.com/1397338.js"> </script>
 

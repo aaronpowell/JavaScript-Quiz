@@ -3,7 +3,7 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated>2011-11-27T10:09:44Z</updated>
+    <updated>2011-11-28T02:08:02Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
@@ -21,7 +21,7 @@
 
 The following example uses a ECMAScript 5 properties and also fails.
 
-How can you make it not fail?
+Is it possible to use `defineProperty` on a frozen object and have it not fail?
 
 &lt;script src=&quot;https://gist.github.com/1397338.js&quot;&gt; &lt;/script&gt;
 
