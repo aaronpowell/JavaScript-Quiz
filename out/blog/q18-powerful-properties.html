@@ -4,11 +4,30 @@
 
 <script src="https://gist.github.com/1397338.js"> </script>
 
-<p>Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</p>
+<span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span>
 
-<p>If you don&#39;t want your answer public, please post a comment like &#39;playing at home&#39; so I can at least guage how many people are participating and whether the questions are useful.</p>
+<span style="text-decoration: line-through;">If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</span>
 
-<p>Good Luck :).</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+<p>Good Luck :).</p>
+
+<hr></hr>
+
+<p>There&#39;s a lot of power which can be obtained from the properties which are included in ECMAScript 5, but one thing that you can&#39;t <em>normally</em> do is define a property on a frozen object.</p>
+
+<p>Although the spec doesn&#39;t explain it clearly the crux is <em>if you call <code>defineProperty</code> on a frozen object with the value of the existing property it wont fail</em>.</p>
+
+<p>Where this can become interesting is to improve our <a href="http://javascriptquiz.com/blog/q17-really-negative.html">-0 test from last time</a>, like so:</p>
+
+<pre><code>function negativeZero(x) {
+   if (x!==0) return false;
+   var obj=Object.freeze({z:-0});
+   try {
+      Object.defineProperty(obj,&#39;z&#39;,{value:x});
+   } catch (e) {return false};
+   return true;
+}</code></pre>
+
+<p>This will only pass for -0, unlike the previous implementation (the idea I got from <a href="http://www.wirfs-brock.com/allen/posts/128">here</a>).</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
     return $(function() {
       var _this = this;
       window.disqus_shortname = "javascriptquiz";
