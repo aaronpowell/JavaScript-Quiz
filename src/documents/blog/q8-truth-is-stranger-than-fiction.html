@@ -1,0 +1,25 @@
+---
+layout: post
+title: Q8 - Truth is stranger than fiction
+tags: []
+date: '2011-08-31'
+slug: That's not not what I'm taking about
+---
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q8-truth-is-stranger-than-fiction">here</a>.</em></p>
+<p><em>Sorry for the late question this week, I'm currently at a conference and haven't had time to get a big question together.</em></p>
+<p>Taking the following code example under what scenario could you receive a <strong>false positive </strong><em style="font-weight: bold;"></em>from the method? Knowing that there is the potential for a false positive how can you fix it <strong>while still keeping the if statement </strong>(note: you can change the the condition) using <strong>the least number of characters possible</strong>?</p>
+<script src="https://gist.github.com/1182921.js"></script>
+<p>&nbsp;</p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span></p>
+<p>Update: Answer Posted</p>
+<p>If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</p>
+<p>Follow <a href="http://twitter.com/javascriptquiz">@JavaScriptQuiz</a> to know when the answer is up and to catch the next question.</p>
+<hr />
+<p>This week I was looking at a common mistake with regards to JavaScript falsey values. If you remember your JavaScript theory you'll know that there's a lot of different falsey values in JavaScript.</p>
+<p>Something that has been coming up a lot in JavaScript design patterns of recently is the use of the <strong>double-not</strong>&nbsp;operator, or <strong>!!</strong>.</p>
+<p>The double-not operator is useful as it will <strong>force a boolean</strong>&nbsp;in a scenario like:</p>
+<ul>
+<li>Checking a boolean result <em>as a boolean</em>&nbsp;(ie - not as an assumed boolean)</li>
+<li>Returning a result from a function</li>
+</ul>
+<p>So next time you see a <strong>!!</strong>&nbsp;in your JavaScript know it's there to force a type to be a boolean.</p>

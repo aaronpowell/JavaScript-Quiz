@@ -1,0 +1,21 @@
+---
+layout: post
+title: Q9 - It doesn't add up
+tags: []
+date: '2011-09-17'
+slug: Why doesn't this add up?
+---
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q9-it-doesnt-add-up">here</a>.</em></p>
+<p>The following code snippet <strong>does not</strong> create an <strong>array</strong>, <strong>what</strong> does it create instead?</p>
+<script src="https://gist.github.com/1210243.js"></script>
+<p>Since it doesn't create an array what is the <strong>shortest and</strong>&nbsp;<strong>safest</strong>&nbsp;way to <strong>combine</strong> all variables into a <strong>single array</strong>?</p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span><br />Update: Answer posted.&nbsp;</p>
+<p>If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</p>
+<p>Follow&nbsp;<a href="http://twitter.com/javascriptquiz">@JavaScriptQuiz</a>&nbsp;to know when the answer is up and to catch the next question.</p>
+<div>Happy hacking.</div>
+<hr />
+<p>This week we've been looking at the <a href="http://es5.github.com/#x11.6.1">Addition Operator</a>&nbsp;and how it operates with arrays.</p>
+<p>The result that you end up with from the log statement is:<br /><strong>1,2,345,6</strong></p>
+<p><strong></strong>The reason for this is because the addition operator will call the <a href="http://es5.github.com/#x15.4.4.2">toString on the array</a>, which will join all the items in the array into a single string, separated by a comma (although the latter is not properly defined in the spec).</p>
+<p>&nbsp;If you want to actually concatinate the arrays together you should use the <a href="http://es5.github.com/#x15.4.4.4">concat</a>&nbsp;method on the array prototype. This method can be use like this:<br /><strong>a.concat(b,c)</strong></p>
+<p>If you don't trust the provider of the arrays or you want to be sure that you're not using a concat method that has been changed you could do it like this:<br /><strong>Array.prototype.concat.call(a, b, c)</strong>&nbsp;</p>
