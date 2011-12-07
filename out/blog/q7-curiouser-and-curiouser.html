@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="text/html; charset=utf-8" http-equiv="content-type" /><title>Q7 - Curiouser and Curiouser</title><meta content="Aaron Powell" name="author" /><meta content="me@aaron-powell.com" name="email" /><meta content="Q7 - Curiouser and Curiouser" name="title" /><meta content="Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions" name="description" /><meta content="width=device-width" name="viewport" /><link href="/styles/site.css" rel="stylesheet" type="text/css" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script></head><body class="q7-- curiouser and curiouser"><div id="main"><header><h1><a href="http://javascriptquiz.com">JavaScript Quiz</a></h1><h3>Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions</h3></header><div id="content" class="content"><article id="post" class="post undefined"><h1>Q7 - Curiouser and Curiouser</h1><h3>Tue Aug 23 2011</h3><div>
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q7-curiouser-and-curiouser">here</a>.</em></p>
+<p><em>Today's JavaScript quiz has been submitted by <a href="http://twitter.com/#!/apostopher" target="_blank">Rahul Devaskar</a>, don't forget you can <a href="http://www.aaron-powell.com/about" target="_blank">submit yours too</a>!</em></p>
+<p>Without using a browser what is the <strong>output</strong> of the <strong>following code</strong>? If it <strong>fails</strong>&nbsp;why does it fail and <strong>how</strong>&nbsp;would you fix it?</p>
+<script src="https://gist.github.com/1163879.js"></script>
+<p><strong>How to Play</strong></p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span><br />Updated - Answer Posted!&nbsp;</p>
+<p>If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</p>
+<p>Follow <a href="http://twitter.com/javascriptquiz" target="_blank">@JavaScriptQuiz</a> to know when the answer is up and to catch the next question.</p>
+<p><strong>Scoring</strong></p>
+<ul>
+<li>1 point for the correct output</li>
+<li>2 point for knowing if fails or not and how you would fix it</li>
+</ul>
+<p>Good Luck!</p>
+<hr />
+<p>In this weeks JavaScript quiz we've been looking at the idea of <strong>Function Expressions</strong>. Function Expressions are a pattern which is becoming more common in JavaScript code samples (and as a recommended coding standard) and it is when you assign a varaible to a function rather than naming the function, <strong>var fn = function() { ... }</strong>&nbsp;rather than <strong>function fn() { ... }</strong>.</p>
+<p>There's an interesting thing with Function Expressions&nbsp;<em>they are created by evaluating the function</em>&nbsp;(see section 11.2.5 of the ECMAScript specification).&nbsp;<br />What's interesting about this is we are <strong>evaluting the function</strong>&nbsp;not just taking it as a straight assignment.</p>
+<p>The next point of note from this question is that we've also got an assumption about <strong>automatic semicolon insersion</strong>&nbsp;(7.9 in the spec), that it will be included on the end of the line function expression, but here's the funny part, parenthesis is handled, they are treated as the start of the arguments for the previous function. Serious, check the last paragraph in section 7.9.2!</p>
+<p>That means the answer this week is that the code will <strong>fail</strong>, and it'll fail with a <strong>TypeError</strong>. The reason is <strong>evaluation wont happen on the anonymous function, but on the result of the first</strong>, this means that <strong>it will attempted to execute RedGreen,</strong>&nbsp;which will be a string, which cannot be invoked as a function!</p>
+<p>To then fix the code all that needs to be done is remove the final <strong>()</strong>&nbsp;so that the function is passed in rather than the evaluation, resulting in <strong>sayColor</strong>&nbsp;equaling <strong>RedGreen</strong>.</p>
+<p>So scoring breakdown is:</p>
+<ul>
+<li>1 point for knowing the output is a TypeError</li>
+<li>1 point for knowing that it failed</li>
+<li>1 point for knowing that you can fix it by removing the final <strong>()</strong></li>
+</ul>
+<p>And what's the lesson, always include your semicolons, especially if you're using function expressions!</p>
+<p>Until next time check out <a href="http://cssquiz.com/">CSS Quiz</a>&nbsp;or <a href="http://powershellquiz.com/">PowerShell Quiz</a>.</p>
+<p>PS: The fact that there was an implied global variable in the function was just a mistake when writing the code, nothing else ;).</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+    return $(function() {
+      var _this = this;
+      window.disqus_shortname = "javascriptquiz";
+      window.disqus_identifier = document.title || 'Home';
+      window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
+      window.disqus_url = document.location.href;
+      if (typeof window.DISQUS !== "undefined") {
+        return window.DISQUS.reset({
+          reload: true,
+          config: function() {
+            _this.page.identifier = document.title;
+            return _this.page.url = document.location.href;
+          }
+        });
+      }
+    });
+  }).call(this);</script></section></div></div><script src="http://javascriptquiz.disqus.com/embed.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script src="/scripts/modernizr.custom.js"></script><script src="/scripts/analytics.js"></script></body></html>

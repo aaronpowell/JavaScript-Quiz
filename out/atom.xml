@@ -3,7 +3,7 @@
     <title>JavaScript Quiz</title>
     <link href="http://javascriptquiz.com/atom.xml" rel="self"/>
     <link href="http://javascriptquiz.com"/>
-    <updated>2011-12-05T08:52:46Z</updated>
+    <updated>2011-12-07T22:44:22Z</updated>
     <id>http://javascriptquiz.com</id>
     <author>
         <name>Aaron Powell</name>
@@ -397,6 +397,97 @@ There's a lot of interesting things which can be done with the comma operator, [
 &lt;p&gt;The answer I was looking for to this weeks question is &lt;strong&gt;Han&lt;/strong&gt;&amp;nbsp;because after all &lt;a href=&quot;http://en.wikipedia.org/wiki/Han_shot_first&quot;&gt;Han always shot first&lt;/a&gt;&amp;nbsp;;). Technically the answer to this weeks question is &lt;em&gt;it depends&lt;/em&gt;&amp;nbsp;because timers work slightly different in each JavaScript runtime but to be closes to &lt;a href=&quot;http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#timers&quot;&gt;the spec&lt;/a&gt;&amp;nbsp;you're looking at Han.&lt;/p&gt;
 &lt;p&gt;The reason for this is that according to the spec the minimum for a timeout in JavaScript is 4 milliseconds and any timeout that is less than 4 milliseconds will be increased to 4 milliseconds. This means that the two functions have &lt;strong&gt;the same timeout value&lt;/strong&gt;&amp;nbsp;and they will be executed in the order they are added to the timeout queue.&lt;/p&gt;
 &lt;p&gt;So next time you're using small timeouts be sure to test them across your different runtimes so that they actually work as expected.&lt;/p&gt;</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>Q9 - It doesn't add up</title>
+                <link href="http://javascriptquiz.com/blog/q9-it-doesnt-add-up.html"/>
+                <updated>2011-09-17T00:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q9-it-doesnt-add-up.html</id>
+                <content type="html">
+&lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q9-it-doesnt-add-up&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The following code snippet &lt;strong&gt;does not&lt;/strong&gt; create an &lt;strong&gt;array&lt;/strong&gt;, &lt;strong&gt;what&lt;/strong&gt; does it create instead?&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/1210243.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;Since it doesn't create an array what is the &lt;strong&gt;shortest and&lt;/strong&gt;&amp;nbsp;&lt;strong&gt;safest&lt;/strong&gt;&amp;nbsp;way to &lt;strong&gt;combine&lt;/strong&gt; all variables into a &lt;strong&gt;single array&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;&lt;br /&gt;Update: Answer posted.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/p&gt;
+&lt;p&gt;Follow&amp;nbsp;&lt;a href=&quot;http://twitter.com/javascriptquiz&quot;&gt;@JavaScriptQuiz&lt;/a&gt;&amp;nbsp;to know when the answer is up and to catch the next question.&lt;/p&gt;
+&lt;div&gt;Happy hacking.&lt;/div&gt;
+&lt;hr /&gt;
+&lt;p&gt;This week we've been looking at the &lt;a href=&quot;http://es5.github.com/#x11.6.1&quot;&gt;Addition Operator&lt;/a&gt;&amp;nbsp;and how it operates with arrays.&lt;/p&gt;
+&lt;p&gt;The result that you end up with from the log statement is:&lt;br /&gt;&lt;strong&gt;1,2,345,6&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;The reason for this is because the addition operator will call the &lt;a href=&quot;http://es5.github.com/#x15.4.4.2&quot;&gt;toString on the array&lt;/a&gt;, which will join all the items in the array into a single string, separated by a comma (although the latter is not properly defined in the spec).&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;If you want to actually concatinate the arrays together you should use the &lt;a href=&quot;http://es5.github.com/#x15.4.4.4&quot;&gt;concat&lt;/a&gt;&amp;nbsp;method on the array prototype. This method can be use like this:&lt;br /&gt;&lt;strong&gt;a.concat(b,c)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you don't trust the provider of the arrays or you want to be sure that you're not using a concat method that has been changed you could do it like this:&lt;br /&gt;&lt;strong&gt;Array.prototype.concat.call(a, b, c)&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>Q8 - Truth is stranger than fiction</title>
+                <link href="http://javascriptquiz.com/blog/q8-truth-is-stranger-than-fiction.html"/>
+                <updated>2011-08-31T00:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q8-truth-is-stranger-than-fiction.html</id>
+                <content type="html">
+&lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q8-truth-is-stranger-than-fiction&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Sorry for the late question this week, I'm currently at a conference and haven't had time to get a big question together.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Taking the following code example under what scenario could you receive a &lt;strong&gt;false positive &lt;/strong&gt;&lt;em style=&quot;font-weight: bold;&quot;&gt;&lt;/em&gt;from the method? Knowing that there is the potential for a false positive how can you fix it &lt;strong&gt;while still keeping the if statement &lt;/strong&gt;(note: you can change the the condition) using &lt;strong&gt;the least number of characters possible&lt;/strong&gt;?&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/1182921.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Update: Answer Posted&lt;/p&gt;
+&lt;p&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/p&gt;
+&lt;p&gt;Follow &lt;a href=&quot;http://twitter.com/javascriptquiz&quot;&gt;@JavaScriptQuiz&lt;/a&gt; to know when the answer is up and to catch the next question.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This week I was looking at a common mistake with regards to JavaScript falsey values. If you remember your JavaScript theory you'll know that there's a lot of different falsey values in JavaScript.&lt;/p&gt;
+&lt;p&gt;Something that has been coming up a lot in JavaScript design patterns of recently is the use of the &lt;strong&gt;double-not&lt;/strong&gt;&amp;nbsp;operator, or &lt;strong&gt;!!&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The double-not operator is useful as it will &lt;strong&gt;force a boolean&lt;/strong&gt;&amp;nbsp;in a scenario like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Checking a boolean result &lt;em&gt;as a boolean&lt;/em&gt;&amp;nbsp;(ie - not as an assumed boolean)&lt;/li&gt;
+&lt;li&gt;Returning a result from a function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So next time you see a &lt;strong&gt;!!&lt;/strong&gt;&amp;nbsp;in your JavaScript know it's there to force a type to be a boolean.&lt;/p&gt;</content>
+            </entry>
+        
+    
+        
+            <entry>
+                <title>Q7 - Curiouser and Curiouser</title>
+                <link href="http://javascriptquiz.com/blog/q7-curiouser-and-curiouser.html"/>
+                <updated>2011-08-23T00:00:00Z</updated>
+                <id>http://javascriptquiz.com/blog/q7-curiouser-and-curiouser.html</id>
+                <content type="html">
+&lt;p&gt;&lt;em&gt;This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see &lt;a href=&quot;http://javascriptquiz.posterous.com/q7-curiouser-and-curiouser&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Today's JavaScript quiz has been submitted by &lt;a href=&quot;http://twitter.com/#!/apostopher&quot; target=&quot;_blank&quot;&gt;Rahul Devaskar&lt;/a&gt;, don't forget you can &lt;a href=&quot;http://www.aaron-powell.com/about&quot; target=&quot;_blank&quot;&gt;submit yours too&lt;/a&gt;!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Without using a browser what is the &lt;strong&gt;output&lt;/strong&gt; of the &lt;strong&gt;following code&lt;/strong&gt;? If it &lt;strong&gt;fails&lt;/strong&gt;&amp;nbsp;why does it fail and &lt;strong&gt;how&lt;/strong&gt;&amp;nbsp;would you fix it?&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/1163879.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;strong&gt;How to Play&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-decoration: line-through;&quot;&gt;Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.&lt;/span&gt;&lt;br /&gt;Updated - Answer Posted!&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.&lt;/p&gt;
+&lt;p&gt;Follow &lt;a href=&quot;http://twitter.com/javascriptquiz&quot; target=&quot;_blank&quot;&gt;@JavaScriptQuiz&lt;/a&gt; to know when the answer is up and to catch the next question.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scoring&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 point for the correct output&lt;/li&gt;
+&lt;li&gt;2 point for knowing if fails or not and how you would fix it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Good Luck!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;In this weeks JavaScript quiz we've been looking at the idea of &lt;strong&gt;Function Expressions&lt;/strong&gt;. Function Expressions are a pattern which is becoming more common in JavaScript code samples (and as a recommended coding standard) and it is when you assign a varaible to a function rather than naming the function, &lt;strong&gt;var fn = function() { ... }&lt;/strong&gt;&amp;nbsp;rather than &lt;strong&gt;function fn() { ... }&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;There's an interesting thing with Function Expressions&amp;nbsp;&lt;em&gt;they are created by evaluating the function&lt;/em&gt;&amp;nbsp;(see section 11.2.5 of the ECMAScript specification).&amp;nbsp;&lt;br /&gt;What's interesting about this is we are &lt;strong&gt;evaluting the function&lt;/strong&gt;&amp;nbsp;not just taking it as a straight assignment.&lt;/p&gt;
+&lt;p&gt;The next point of note from this question is that we've also got an assumption about &lt;strong&gt;automatic semicolon insersion&lt;/strong&gt;&amp;nbsp;(7.9 in the spec), that it will be included on the end of the line function expression, but here's the funny part, parenthesis is handled, they are treated as the start of the arguments for the previous function. Serious, check the last paragraph in section 7.9.2!&lt;/p&gt;
+&lt;p&gt;That means the answer this week is that the code will &lt;strong&gt;fail&lt;/strong&gt;, and it'll fail with a &lt;strong&gt;TypeError&lt;/strong&gt;. The reason is &lt;strong&gt;evaluation wont happen on the anonymous function, but on the result of the first&lt;/strong&gt;, this means that &lt;strong&gt;it will attempted to execute RedGreen,&lt;/strong&gt;&amp;nbsp;which will be a string, which cannot be invoked as a function!&lt;/p&gt;
+&lt;p&gt;To then fix the code all that needs to be done is remove the final &lt;strong&gt;()&lt;/strong&gt;&amp;nbsp;so that the function is passed in rather than the evaluation, resulting in &lt;strong&gt;sayColor&lt;/strong&gt;&amp;nbsp;equaling &lt;strong&gt;RedGreen&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So scoring breakdown is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 point for knowing the output is a TypeError&lt;/li&gt;
+&lt;li&gt;1 point for knowing that it failed&lt;/li&gt;
+&lt;li&gt;1 point for knowing that you can fix it by removing the final &lt;strong&gt;()&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And what's the lesson, always include your semicolons, especially if you're using function expressions!&lt;/p&gt;
+&lt;p&gt;Until next time check out &lt;a href=&quot;http://cssquiz.com/&quot;&gt;CSS Quiz&lt;/a&gt;&amp;nbsp;or &lt;a href=&quot;http://powershellquiz.com/&quot;&gt;PowerShell Quiz&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;PS: The fact that there was an implied global variable in the function was just a mistake when writing the code, nothing else ;).&lt;/p&gt;</content>
             </entry>
         
     

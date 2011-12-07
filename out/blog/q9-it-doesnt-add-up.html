@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="text/html; charset=utf-8" http-equiv="content-type" /><title>Q9 - It doesn't add up</title><meta content="Aaron Powell" name="author" /><meta content="me@aaron-powell.com" name="email" /><meta content="Q9 - It doesn't add up" name="title" /><meta content="Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions" name="description" /><meta content="width=device-width" name="viewport" /><link href="/styles/site.css" rel="stylesheet" type="text/css" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script></head><body class="q9-- it doesn't add up"><div id="main"><header><h1><a href="http://javascriptquiz.com">JavaScript Quiz</a></h1><h3>Regular JavaScript questions to explore the fun world of JavaScript and keep you on your toes. Follow @JavaScriptQuiz on Twitter for the latest questions</h3></header><div id="content" class="content"><article id="post" class="post undefined"><h1>Q9 - It doesn't add up</h1><h3>Sat Sep 17 2011</h3><div>
+<p><em>This post was migrated from the old website. For the initial answers that people submitted (and aren't migrated) please see <a href="http://javascriptquiz.posterous.com/q9-it-doesnt-add-up">here</a>.</em></p>
+<p>The following code snippet <strong>does not</strong> create an <strong>array</strong>, <strong>what</strong> does it create instead?</p>
+<script src="https://gist.github.com/1210243.js"></script>
+<p>Since it doesn't create an array what is the <strong>shortest and</strong>&nbsp;<strong>safest</strong>&nbsp;way to <strong>combine</strong> all variables into a <strong>single array</strong>?</p>
+<p><span style="text-decoration: line-through;">Post your JavaScript as a comment. Comments will be held in the moderation queue until the answer is posted. Full answer and explanation will be appended to this post around 72 - 96 hours after the question is posted.</span><br />Update: Answer posted.&nbsp;</p>
+<p>If you don't want your answer public, please post a comment like 'playing at home' so I can at least guage how many people are participating and whether the questions are useful.</p>
+<p>Follow&nbsp;<a href="http://twitter.com/javascriptquiz">@JavaScriptQuiz</a>&nbsp;to know when the answer is up and to catch the next question.</p>
+<div>Happy hacking.</div>
+<hr />
+<p>This week we've been looking at the <a href="http://es5.github.com/#x11.6.1">Addition Operator</a>&nbsp;and how it operates with arrays.</p>
+<p>The result that you end up with from the log statement is:<br /><strong>1,2,345,6</strong></p>
+<p><strong></strong>The reason for this is because the addition operator will call the <a href="http://es5.github.com/#x15.4.4.2">toString on the array</a>, which will join all the items in the array into a single string, separated by a comma (although the latter is not properly defined in the spec).</p>
+<p>&nbsp;If you want to actually concatinate the arrays together you should use the <a href="http://es5.github.com/#x15.4.4.4">concat</a>&nbsp;method on the array prototype. This method can be use like this:<br /><strong>a.concat(b,c)</strong></p>
+<p>If you don't trust the provider of the arrays or you want to be sure that you're not using a concat method that has been changed you could do it like this:<br /><strong>Array.prototype.concat.call(a, b, c)</strong>&nbsp;</p></div></article><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="javascriptquiz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"> </script><section id="comments"><h3>Answers</h3><div id="disqus_thread">&nbsp;</div><script>var __slice = Array.prototype.slice;var __hasProp = Object.prototype.hasOwnProperty;var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };var __extends = function(child, parent) {  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }  function ctor() { this.constructor = child; }  ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype;  return child; };var __indexOf = Array.prototype.indexOf || function(item) {  for (var i = 0, l = this.length; i < l; i++) {    if (this[i] === item) return i;  } return -1; };(function () {
+    return $(function() {
+      var _this = this;
+      window.disqus_shortname = "javascriptquiz";
+      window.disqus_identifier = document.title || 'Home';
+      window.disqus_developer = document.location.href.indexOf("localhost") ? 1 : 0;
+      window.disqus_url = document.location.href;
+      if (typeof window.DISQUS !== "undefined") {
+        return window.DISQUS.reset({
+          reload: true,
+          config: function() {
+            _this.page.identifier = document.title;
+            return _this.page.url = document.location.href;
+          }
+        });
+      }
+    });
+  }).call(this);</script></section></div></div><script src="http://javascriptquiz.disqus.com/embed.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script src="/scripts/modernizr.custom.js"></script><script src="/scripts/analytics.js"></script></body></html>
